@@ -1,1 +1,1 @@
-# Typescript Library Boilerplate 
+# Typescript Library Boilerplate
