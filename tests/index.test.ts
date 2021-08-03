@@ -1,4 +1,4 @@
-import { avg, sum3 } from '../src';
+import { avg, sum3 } from '..';
 
 describe('avg should calculate an average properly', () => {
   test('three positive numbers', () => {
