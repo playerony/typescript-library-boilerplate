@@ -1,31 +1,44 @@
-name: Commitlint
-on: [push, pull_request]
+version: 2
+defaults:
+  working_directory: ~/project
+  docker:
+    - image: circleci/node:latest
 
 jobs:
-  commitlint:
-    runs-on: ubuntu-latest
+  setup:
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - run: sed -i -E "s/(docker:.+)/Dockerfile/" ./action.yml
-      - run: echo -n '' > .dockerignore
-      - uses: actions/setup-node@v2.2.0
-        with:
-          node-version: '14'
-      - uses: actions/cache@v2.1.6
-        with:
-          path: |
-            ~/.npm
-            **/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - run: npm ci --ignore-scripts
-      - uses: ./
-        id: run_commitlint
-        env:
-          NODE_PATH: ${{ github.workspace }}/node_modules
-      - name: Show results from JSON output
-        if: ${{ always() }}
-        run: echo ${{ toJSON(steps.run_commitlint.outputs.results) }}
+      - checkout
+      - restore_cache:
+          key: lock-{{ checksum "package-lock.json" }}
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          key: lock-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - node_modules
+
+  lint_commit_message:
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - run:
+          name: Define environment variable with lastest commit's message
+          command: |
+            echo 'export COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")' >> $BASH_ENV
+            source $BASH_ENV
+      - run:
+          name: Lint commit message
+          command: echo "$COMMIT_MESSAGE" | npx commitlint
+
+workflows:
+  version: 2
+  commit:
+    jobs:
+      - setup
+      - lint_commit_message: { requires: [setup] }
