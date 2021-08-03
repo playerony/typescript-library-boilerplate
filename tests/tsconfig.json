@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.json",
+  "references": [
+    {
+      "path": "..",
+      "name": "typescript-library-boilerplate"
+    }
+  ],
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": "..",
+    "types": ["jest"]
+  },
+  "include": ["."]
+}
