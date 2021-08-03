@@ -1,6 +1,7 @@
 {
   "extends": "../tsconfig.json",
   "references": [
+    { "path": "../tsconfig.json" },
     {
       "path": "..",
       "name": "typescript-library-boilerplate"
