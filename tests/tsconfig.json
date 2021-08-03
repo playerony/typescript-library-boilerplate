@@ -1,7 +1,6 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "../tsconfig.eslint.json",
   "references": [
-    { "path": "../tsconfig.json" },
     {
       "path": "..",
       "name": "typescript-library-boilerplate"

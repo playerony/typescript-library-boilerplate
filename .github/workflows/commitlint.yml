@@ -20,5 +20,8 @@ jobs:
       - name: yarn install
         run: yarn install
 
-      - name: yarn commitlint
+      - name: yarn commitlint for last commit
         run: git log -1 --pretty=format:"%s" | npx commitlint
+
+      - name: yarn commitlint for main branch
+        run: yarn commitlint
