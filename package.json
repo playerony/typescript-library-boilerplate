@@ -14,6 +14,7 @@
     "format": "prettier --write .",
     "lint": "eslint src --ext js,ts",
     "lint:fix": "yarn lint --fix",
+    "open:coverage": "open ./coverage/lcov-report/index.html",
     "prepare": "husky install",
     "test": "jest",
     "test:ci": "jest --ci --coverage --forceExit",
