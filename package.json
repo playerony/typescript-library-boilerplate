@@ -8,7 +8,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "check": "npm run lint && npm run typecheck && npm run test && npm run commitlint && npm run build",
+    "check": "yarn lint && yarn typecheck && yarn test && yarn commitlint && yarn build",
     "commitlint": "commitlint -- --from=main",
     "dev": "yarn build --watch --preserveWatchOutput",
     "format": "prettier --write .",
