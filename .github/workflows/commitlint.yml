@@ -1,0 +1,31 @@
+name: Commitlint
+on: [push, pull_request]
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: sed -i -E "s/(docker:.+)/Dockerfile/" ./action.yml
+      - run: echo -n '' > .dockerignore
+      - uses: actions/setup-node@v2.2.0
+        with:
+          node-version: '14'
+      - uses: actions/cache@v2.1.6
+        with:
+          path: |
+            ~/.npm
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci --ignore-scripts
+      - uses: ./
+        id: run_commitlint
+        env:
+          NODE_PATH: ${{ github.workspace }}/node_modules
+      - name: Show results from JSON output
+        if: ${{ always() }}
+        run: echo ${{ toJSON(steps.run_commitlint.outputs.results) }}
