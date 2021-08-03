@@ -1,0 +1,25 @@
+{
+  "name": "typescript-library-boilerplate",
+  "version": "1.0.0",
+  "description": "Minimal boilerplate for Typescript libraries",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "git@github.com:playerony/typescript-library-boilerplate.git",
+  "author": "Paweł Wojtasiński",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev": "yarn build --watch --preserveWatchOutput",
+    "lint": "eslint src --ext js,ts",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "jest": "^27.0.6",
+    "typescript": "^4.3.5"
+  },
+  "volta": {
+    "node": "14.17.4",
+    "yarn": "1.22.11"
+  }
+}
