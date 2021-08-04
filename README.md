@@ -43,6 +43,7 @@ You need to have installed the following software:
 ### Build
 
 - `build` - Build for production a ready application.
+- `build:docs` - Build api-documentor markdown documentation.
 
 ### Test
 
