@@ -20,6 +20,8 @@ Minimal boilerplate for Typescript libraries.
   - [Shell](#shell)
   - [Test](#test)
   - [Analyze](#analyze)
+- [📚 Documentation](#user-content--documentation)
+  - [Commit Message Guideline](#commit-message-guideline)
 
 ## ✨ Getting started
 
@@ -73,3 +75,10 @@ You need to have installed the following software:
 - `format` - Run `prettier` with `--write` flag. Format all the files.
 - `format:check` - Run `prettier` with `--check` flag. Output any format errors 🚨.
 - `check` - Run `lint`, `test`, `build`, `typecheck`, `commitlint` and `format:check`. Output any errors 🚨.
+
+## 📚 Documentation
+
+### Commit Message Guideline
+
+- For easier commit type recognition commit messages are prefixed with a proper type
+- See available commit types: [https://www.npmjs.com/package/@commitlint/config-conventional](https://www.npmjs.com/package/@commitlint/config-conventional)
