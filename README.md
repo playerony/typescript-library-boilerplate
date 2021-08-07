@@ -15,6 +15,7 @@
 - [📜 Scripts](#user-content--scripts)
   - [Development](#development)
   - [Build](#build)
+  - [Shell](#shell)
   - [Test](#test)
   - [Analyze](#analyze)
 
@@ -25,7 +26,7 @@
 You need to have installed the following software:
 
 - [nodejs](https://nodejs.org/en/) (>=14.15.0)
-- [npm](https://npmjs.com/) (>= 6.14.0)
+- [yarn](https://yarnpkg.com/) (>= 1.22.10)
 
 ### Bootstrap
 
@@ -46,6 +47,13 @@ You need to have installed the following software:
 - `build` - Build for production a ready application.
 - `build:docs` - Build api-documentor markdown documentation.
 
+### Shell
+
+- `remove-node-modules` - Remove node_modules directory with rimraf command.
+- `reinstall-node-modules` - Invokes `remove-node-modules` and `yarn install`.
+- `gcb` - (git-create-branch) Create and checkout on the branch with the given name.
+- `gpc` - (git-push-changes) Commit and push all files on a current branch with the given commit message.
+
 ### Test
 
 - `test` - Run tests.
@@ -59,6 +67,7 @@ You need to have installed the following software:
 - `lint` - Run `eslint`. Output any errors 🚨.
 - `lint:fix` - Run `eslint` with `--fix`flag . Fix any lint errors 🚨.
 - `typecheck` - Run `tsc`. Output any errors 🚨.
-- `format` - Run `prettier` to format all the files.
 - `commitlint` - Run `commitlint`. Output any errors 🚨.
-- `check` - Run `lint`, `commitlint`, `build`, `typecheck` and `test`. Output any errors 🚨.
+- `format` - Run `prettier` with `--write` flag. Format all the files.
+- `format:check` - Run `prettier` with `--check` flag. Output any format errors 🚨.
+- `check` - Run `lint`, `test`, `build`, `commitlint`, `typecheck` and `format:check`. Output any errors 🚨.
