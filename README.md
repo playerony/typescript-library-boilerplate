@@ -7,6 +7,8 @@
 ![Typecheck](https://github.com/playerony/typescript-library-boilerplate/workflows/typecheck/badge.svg)
 ![Commitlint](https://github.com/playerony/typescript-library-boilerplate/workflows/commitlint/badge.svg)
 
+Minimal boilerplate for Typescript libraries
+
 ## 📖 Table of Contents
 
 - [✨ Getting started](#user-content--getting-started)
