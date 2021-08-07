@@ -72,4 +72,4 @@ You need to have installed the following software:
 - `commitlint` - Run `commitlint`. Output any errors 🚨.
 - `format` - Run `prettier` with `--write` flag. Format all the files.
 - `format:check` - Run `prettier` with `--check` flag. Output any format errors 🚨.
-- `check` - Run `lint`, `test`, `build`, `commitlint`, `typecheck` and `format:check`. Output any errors 🚨.
+- `check` - Run `lint`, `test`, `build`, `typecheck`, `commitlint` and `format:check`. Output any errors 🚨.
