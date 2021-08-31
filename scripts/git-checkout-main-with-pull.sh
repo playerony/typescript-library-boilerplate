@@ -1,4 +1,4 @@
-mainBranchName=$(git branch -r | cut -d "/" -f2)
+mainBranchName=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
 echo "Info: Detach main branch name as: '$mainBranchName'."
 
 git checkout $mainBranchName
