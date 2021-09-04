@@ -7,8 +7,8 @@
   "repository": "git@github.com:playerony/typescript-library-boilerplate.git",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "build:docs": "yarn build && yarn docs:api-extractor && yarn docs:api-documenter",
+    "build": "npx rimraf dist && npx rimraf tsconfig.tsbuildinfo && tsc",
+    "build:docs": "bash ./scripts/build-docs.sh",
     "check": "yarn lint && yarn typecheck && yarn format:check && yarn test && yarn commitlint && yarn build",
     "commitlint": "commitlint -- --from=main",
     "dev": "yarn build --watch --preserveWatchOutput",
