@@ -37,7 +37,7 @@ You need to have installed the following software:
 ```bash
   git clone --depth 1 https://github.com/playerony/typescript-library-boilerplate my-lib
   cd my-lib
-  yarn install
+  bash ./scripts/setup-project.sh
 ```
 
 ## 📜 Scripts:
