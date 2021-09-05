@@ -1,13 +1,13 @@
 # Typescript Library Boilerplate
 
+Minimal boilerplate for Typescript libraries.
+
 ![Lint](https://github.com/playerony/typescript-library-boilerplate/workflows/lint/badge.svg)
 ![Test](https://github.com/playerony/typescript-library-boilerplate/workflows/test/badge.svg)
 ![Build](https://github.com/playerony/typescript-library-boilerplate/workflows/build/badge.svg)
 ![Prettier](https://github.com/playerony/typescript-library-boilerplate/workflows/prettier/badge.svg)
 ![Typecheck](https://github.com/playerony/typescript-library-boilerplate/workflows/typecheck/badge.svg)
 ![Commitlint](https://github.com/playerony/typescript-library-boilerplate/workflows/commitlint/badge.svg)
-
-Minimal boilerplate for Typescript libraries.
 
 ## 📖 Table of Contents
 
@@ -37,7 +37,7 @@ You need to have installed the following software:
 ```bash
   git clone --depth 1 https://github.com/playerony/typescript-library-boilerplate my-lib
   cd my-lib
-  yarn install
+  bash ./scripts/setup-project.sh
 ```
 
 ## 📜 Scripts:
