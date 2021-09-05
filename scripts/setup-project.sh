@@ -101,7 +101,7 @@ yarn build:docs
 rm -rf .git
 git init
 git add .
-git remote add origin $projectRepository
+git remote add origin "git@github.com:$projectRepositoryUsername/$projectShortcut.git"
 git branch -M main
 
 
