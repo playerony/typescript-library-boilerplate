@@ -97,5 +97,13 @@ yarn install
 yarn build:docs
 
 
+## Setup github
+rm -rf .git
+git init
+git add .
+git remote add origin $projectRepository
+git branch -M main
+
+
 ## Remove setup-project script
 rm ./scripts/setup-project.sh
