@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Minimal boilerplate for Typescript libraries",
   "license": "MIT",
-  "author": "Paweł Wojtasiński",
+  "author": "Paweł Wojtasiński <pawel.wojtasinski.1995@gmail.com>",
   "repository": "git@github.com:playerony/typescript-library-boilerplate.git",
   "main": "dist/index.js",
   "scripts": {
