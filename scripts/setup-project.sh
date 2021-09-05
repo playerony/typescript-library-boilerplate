@@ -18,7 +18,7 @@ defaultProjectName="Typescript Library Boilerplate"
 defaultProjectShortcut="typescript-library-boilerplate"
 defaultProjectDescription="Minimal boilerplate for Typescript libraries."
 defaultProjectAuthor="Paweł Wojtasiński <pawel.wojtasinski.1995@gmail.com>"
-defaultProjectRepository="git@github.com:playerony/typescript-library-boilerplate.git"
+defaultProjectRepository=$(echo "git@github.com:playerony/typescript-library-boilerplate.git" | sed 's#/#\\/#g')
 
 
 ## read input data
@@ -27,7 +27,6 @@ read -p "Enter project name (default: '$defaultProjectName'): " userInputProject
 read -p "Enter project shortcut (default: '$defaultProjectShortcut'): " userInputProjectShortcut
 read -p "Enter project description (default: '$defaultProjectDescription'): " userInputProjectDescription
 read -p "Enter project author (default: '$defaultProjectAuthor'): " userInputProjectAuthor
-read -p "Enter project repository (default: '$defaultProjectRepository'): " userInputProjectRepository
 
 
 ## replace empty values with defaults
@@ -46,8 +45,7 @@ projectDescription=$retval
 verifyUserInput "$userInputProjectAuthor" "$defaultProjectAuthor"
 projectAuthor=$retval
 
-verifyUserInput "$userInputProjectRepository" "$defaultProjectRepository"
-projectRepository=$(echo "$retval" | sed 's#/#\\/#g')
+projectRepository=$(echo "git@github.com:$projectRepositoryUsername/$projectShortcut.git" | sed 's#/#\\/#g')
 
 
 ## generate README.md
@@ -73,3 +71,12 @@ echo "" >> README1.md
 echo "# license" >> README1.md
 echo "" >> README1.md
 echo "MIT" >> README1.md
+
+
+## replace tags in files with strings
+
+# package.json
+sed -i -e "s/$defaultProjectRepository/$projectRepository/g
+           s/$defaultProjectAuthor/$projectAuthor/g
+           s/$defaultProjectShortcut/$projectShortcut/g
+           s/$defaultProjectDescription/$projectDescription/g" package.json
