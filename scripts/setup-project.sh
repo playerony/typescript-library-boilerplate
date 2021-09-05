@@ -49,28 +49,28 @@ projectRepository=$(echo "git@github.com:$projectRepositoryUsername/$projectShor
 
 
 ## generate README.md
-echo "# $projectName" > README1.md
-echo "" >> README1.md
-echo "$projectDescription" >> README1.md
-echo "" >> README1.md
-echo "![Lint](https://github.com/$projectRepositoryUsername/$projectShortcut/workflows/lint/badge.svg)" >> README1.md
-echo "![Test](https://github.com/$projectRepositoryUsername/$projectShortcut/workflows/test/badge.svg)" >> README1.md
-echo "![Build](https://github.com/$projectRepositoryUsername/$projectShortcut/workflows/build/badge.svg)" >> README1.md
-echo "![Prettier](https://github.com/$projectRepositoryUsername/$projectShortcut/workflows/prettier/badge.svg)" >> README1.md
-echo "![Typecheck](https://github.com/$projectRepositoryUsername/$projectShortcut/workflows/typecheck/badge.svg)" >> README1.md
-echo "![Commitlint](https://github.com/$projectRepositoryUsername/$projectShortcut/workflows/commitlint/badge.svg)" >> README1.md
-echo "" >> README1.md
-echo "# example" >> README1.md
-echo "" >> README1.md
-echo '```js' >> README1.md
-echo "" >> README1.md
-echo '```' >> README1.md
-echo "" >> README1.md
-echo "# usage" >> README1.md
-echo "" >> README1.md
-echo "# license" >> README1.md
-echo "" >> README1.md
-echo "MIT" >> README1.md
+echo "# $projectName" > README.md
+echo "" >> README.md
+echo "$projectDescription" >> README.md
+echo "" >> README.md
+echo "![Lint](https://github.com/$projectRepositoryUsername/$projectShortcut/workflows/lint/badge.svg)" >> README.md
+echo "![Test](https://github.com/$projectRepositoryUsername/$projectShortcut/workflows/test/badge.svg)" >> README.md
+echo "![Build](https://github.com/$projectRepositoryUsername/$projectShortcut/workflows/build/badge.svg)" >> README.md
+echo "![Prettier](https://github.com/$projectRepositoryUsername/$projectShortcut/workflows/prettier/badge.svg)" >> README.md
+echo "![Typecheck](https://github.com/$projectRepositoryUsername/$projectShortcut/workflows/typecheck/badge.svg)" >> README.md
+echo "![Commitlint](https://github.com/$projectRepositoryUsername/$projectShortcut/workflows/commitlint/badge.svg)" >> README.md
+echo "" >> README.md
+echo "# example" >> README.md
+echo "" >> README.md
+echo '```js' >> README.md
+echo "" >> README.md
+echo '```' >> README.md
+echo "" >> README.md
+echo "# usage" >> README.md
+echo "" >> README.md
+echo "# license" >> README.md
+echo "" >> README.md
+echo "MIT" >> README.md
 
 
 ## replace tags in files with strings
@@ -80,3 +80,18 @@ sed -i -e "s/$defaultProjectRepository/$projectRepository/g
            s/$defaultProjectAuthor/$projectAuthor/g
            s/$defaultProjectShortcut/$projectShortcut/g
            s/$defaultProjectDescription/$projectDescription/g" package.json
+
+# ./tests/tsconfig.json
+sed -i -e "s/$defaultProjectShortcut/$projectShortcut/g" ./tests/tsconfig.json
+
+
+## remove all created files
+find . -name "*-e" -type f -delete
+
+
+## install all packages
+yarn install
+
+
+## Build brand new Documentation
+yarn build:docs
