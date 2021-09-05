@@ -95,3 +95,7 @@ yarn install
 
 ## Build brand new Documentation
 yarn build:docs
+
+
+## Remove setup-project script
+rm ./scripts/setup-project.sh
